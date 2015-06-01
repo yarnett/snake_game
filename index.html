@@ -1,0 +1,39 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Snake</title>
+  <script src='src/head.js'></script>
+  <script src='./lib/jquery/dist/jquery.js'></script>
+  <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+<div id="board">
+
+</div>
+</body>
+<script>
+$(document).ready(function() {
+  var bar = new Head();
+
+  $('body').keydown(function(e) {
+    if (e.keyCode === 37) {
+      bar.currentDirection = 'left';
+
+    }
+    if (e.keyCode === 39) {
+      bar.currentDirection = 'right';
+
+    }
+    if (e.keyCode === 38) {
+      bar.currentDirection = 'up';
+
+    }
+    if (e.keyCode === 40) {
+      bar.currentDirection = 'down';
+    }
+  });
+});
+
+
+</script>
+</html>
