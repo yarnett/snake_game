@@ -13,9 +13,8 @@ Head.prototype.move = function() {
   var direction = this.currentDirection;
   var position = this.node.position();
   if (direction === 'right') {
-    position.right += 50;
+    position.left += 50;
   }
-
   this.node.offset(position);
   setTimeout(this.move.bind(this), this.SPEED);
 
