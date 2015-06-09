@@ -1,4 +1,3 @@
-console.log('declrae');
 function Head($el) {
   this.node = $('<div id="head"></div>');
   this.currentDirection = 'right';

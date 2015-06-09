@@ -15,7 +15,6 @@
 <script src="./lib/sinonjs/sinon.js"></script>
 <script>
 if (window.mochaPhantomJS) {
-  console.log('adding bind');
   Function.prototype.bind = Function.prototype.bind || function (thisp) {
       var fn = this;
       return function () {
