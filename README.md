@@ -27,7 +27,6 @@ npm install -g bower
 **Dependencies are files that other developers have written that you plan to use in your code.**
 
 1. Three classes have been provided to you
-
   - Head
   - Body
   - Apple
@@ -35,9 +34,7 @@ npm install -g bower
 1. Head Class
   - make the head of the snake be able to turn based on the arrow keys
   - when the head of the snake reaches a border, end the game
-
-  BONUS:
-  - the head of the snake should not be able to move backwards
+  - **BONUS**: the head of the snake should not be able to move backwards
 
 1. Apple Class
   - the apple should appear randomly on the screen
@@ -47,7 +44,7 @@ npm install -g bower
   - the apple should not appear on the snake
 
 
-1. BONUS: Body Class
+1. **BONUS**: Body Class
   - add a segment to the snake when the head of the snake reaches an apple
   - end the game when the snake runs into its own segment
 
