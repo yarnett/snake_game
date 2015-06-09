@@ -12,8 +12,8 @@ function Head($el) {
 Head.prototype.move = function() {
   var direction = this.currentDirection;
   var position = this.node.position();
-  if (direction === 'left') {
-    position.left -= 50;
+  if (direction === 'right') {
+    position.right += 50;
   }
 
   this.node.offset(position);
