@@ -1,6 +1,7 @@
 if (window.mochaPhantomJS) {
 describe('Snake', function() {
   describe('Head', function() {
+    console.log('hello');
     var SPEED;
     beforeEach(function() {
       SPEED = head.SPEED;
@@ -11,7 +12,7 @@ describe('Snake', function() {
     });
 
     it('should move right if right button is pressed', function() {
-      console.log('there');
+
       var oldPosition = head.node.position();
       var e = jQuery.Event( "keydown", { keyCode: 39 } );
       $('body').trigger(e);
@@ -25,11 +26,7 @@ describe('Snake', function() {
       var oldPosition = head.node.position();
       var e = jQuery.Event( "keydown", { keyCode: 37 } );
       $('body').trigger(e);
-      console.log(clock);
-      console.log(oldPosition);
-      console.log(SPEED);
       clock.tick(10000);
-      console.log(clock);
       var newPosition = head.node.position();
       console.log(newPosition);
       expect(newPosition.top).to.eql(oldPosition.top);
@@ -87,11 +84,6 @@ describe('Snake', function() {
       var newPosition = new Apple($('#board')).node.position();
       expect(oldPosition).to.not.eql(newPosition);
     });
-
-
-
   });
 });
-mochaPhantomJS.run();
-
 }

@@ -1,10 +1,18 @@
 {
   "name": "unit-4-snake",
   "version": "1.0.0",
-  "description": "create head head can move every second depending on which arrow button was clicked game is over when border of grid is released add apple that randomly generates on grid (not on where head is) when apple is eaten add another app",
+  "description": "##Summary Snake is one of the first mobile games in development. We will be creating a browser based version using our understanding of OOP and DOM manipulation.",
   "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "mocha-phantomjs": "^3.5.3",
+    "phantomjs": "^1.9.17"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "mocha-phantomjs index.html"
+    "test": "./node_modules/.bin/mocha-phantomjs index.html"
   },
   "author": "",
   "license": "ISC"
