@@ -87,7 +87,7 @@ describe('Snake', function() {
 
   });
 
-  describe('Segment', function() {
+  describe('Body', function() {
     it('should add segment when apple is eaten', function() {
 
     });
