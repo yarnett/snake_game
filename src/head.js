@@ -1,15 +1,34 @@
-function Head() {
-  this.position = $('<div id="head"></div>');
+console.log('declrae');
+function Head($el) {
+  this.node = $('<div id="head"></div>');
   this.currentDirection = 'right';
-  $('body').append(this.position);
-  this.position.css({top: 100, left: 100});
-  setTimeout(this.move.bind(this), 1000);
+  this.SPEED = 500;
+  $el.append(this.node);
+  this.node.css({top: 0, left: 0});
+  setTimeout(this.move.bind(this), this.SPEED);
+
+  $('body').on('keydown',function(e) {
+    if (e.keyCode === 37) {
+      this.currentDirection = 'left';
+
+    }
+    if (e.keyCode === 39) {
+      this.currentDirection = 'right';
+
+    }
+    if (e.keyCode === 38) {
+      this.currentDirection = 'up';
+
+    }
+    if (e.keyCode === 40) {
+      this.currentDirection = 'down';
+    }
+  }.bind(this));
 }
 
 Head.prototype.move = function() {
   var direction = this.currentDirection;
-  console.log(direction);
-  var position = this.position.position();
+  var position = this.node.position();
   if (direction === 'left') {
     position.left -= 50;
   }
@@ -22,7 +41,7 @@ Head.prototype.move = function() {
   if (direction === 'down') {
     position.top += 50;
   }
-  this.position.css(position);
-  setTimeout(this.move.bind(this), 1000);
+  this.node.offset(position);
+  setTimeout(this.move.bind(this), this.SPEED);
 
 }

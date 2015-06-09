@@ -4,7 +4,7 @@
   "description": "create head head can move every second depending on which arrow button was clicked game is over when border of grid is released add apple that randomly generates on grid (not on where head is) when apple is eaten add another app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha-phantomjs index.html"
   },
   "author": "",
   "license": "ISC"

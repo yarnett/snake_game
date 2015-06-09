@@ -2,38 +2,33 @@
 <head>
   <meta charset="UTF-8">
   <title>Snake</title>
-  <script src='src/head.js'></script>
-  <script src='./lib/jquery/dist/jquery.js'></script>
+  <script src="./lib/jquery/dist/jquery.js"></script>
+
+  <script src='src/Head.js'></script>
+  <script src='src/Body.js'></script>
+  <script src='src/Apple.js'></script>
   <link rel="stylesheet" href="src/styles.css">
 </head>
 <body>
-<div id="board">
-
-</div>
+  <div id="board"></div>
 </body>
+<script src="./lib/sinonjs/sinon.js"></script>
+<script src="./lib/mocha/mocha.js"></script>
+<script src="./lib/expect/index.js"></script>
+
+<script>mocha.setup('bdd');</script>
 <script>
-$(document).ready(function() {
-  var bar = new Head();
+  if (window.mochaPhantomJS) {
+    addScript("./test/index.js");
+  } else {
+    addScript("./src/main.js");
+  }
 
-  $('body').keydown(function(e) {
-    if (e.keyCode === 37) {
-      bar.currentDirection = 'left';
-
-    }
-    if (e.keyCode === 39) {
-      bar.currentDirection = 'right';
-
-    }
-    if (e.keyCode === 38) {
-      bar.currentDirection = 'up';
-
-    }
-    if (e.keyCode === 40) {
-      bar.currentDirection = 'down';
-    }
-  });
-});
-
-
+  function addScript(path) {
+    var js = document.createElement('script');
+    js.type = 'text/javascript';
+    js.src = path;
+    document.body.appendChild(js);
+  }
 </script>
 </html>
