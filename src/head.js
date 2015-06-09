@@ -5,6 +5,7 @@ function Head($el) {
   this.SPEED = 500;
   $el.append(this.node);
   this.node.css({top: 0, left: 0});
+
   setTimeout(this.move.bind(this), this.SPEED);
 
   $('body').on('keydown',function(e) {
