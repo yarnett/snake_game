@@ -1,7 +1,6 @@
 if (window.mochaPhantomJS) {
 describe('Snake', function() {
   describe('Head', function() {
-    console.log('hello');
     var SPEED;
     beforeEach(function() {
       SPEED = head.SPEED;
