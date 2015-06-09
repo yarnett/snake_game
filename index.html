@@ -13,22 +13,13 @@
   <div id="board"></div>
 </body>
 <script src="./lib/sinonjs/sinon.js"></script>
-<script>
-if (window.mochaPhantomJS) {
-  Function.prototype.bind = Function.prototype.bind || function (thisp) {
-      var fn = this;
-      return function () {
-          return fn.apply(thisp, arguments);
-      };
-  };
-}
-</script>
-<script src="./lib/mocha/mocha.js"></script>
 <script src="./lib/expect/index.js"></script>
+<script src="./lib/mocha/mocha.js"></script>
+<script src="./test/polyfill.js"></script>
 <script src="./src/main.js"></script>
-<script>mocha.setup('bdd');</script>
 <script>
   if (window.mochaPhantomJS) {
+    mocha.setup('bdd');
     addScript("./test/index.js");
   }
 

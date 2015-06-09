@@ -1,7 +1,10 @@
 if (window.mochaPhantomJS) {
+  // window.clock = sinon.useFakeTimers();
+
 describe('Snake', function() {
   describe('Head', function() {
     var SPEED;
+    console.log(clock);
     beforeEach(function() {
       SPEED = head.SPEED;
     });
@@ -11,7 +14,6 @@ describe('Snake', function() {
     });
 
     it('should move right if right button is pressed', function() {
-
       var oldPosition = head.node.position();
       var e = jQuery.Event( "keydown", { keyCode: 39 } );
       $('body').trigger(e);
@@ -27,7 +29,6 @@ describe('Snake', function() {
       $('body').trigger(e);
       clock.tick(10000);
       var newPosition = head.node.position();
-      console.log(newPosition);
       expect(newPosition.top).to.eql(oldPosition.top);
       expect(newPosition.left).to.be.lessThan(oldPosition.left);
     });
@@ -85,4 +86,6 @@ describe('Snake', function() {
     });
   });
 });
+    mocha.globals();
+    mochaPhantomJS.run();
 }
