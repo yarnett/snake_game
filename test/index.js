@@ -1,6 +1,3 @@
-if (window.mochaPhantomJS) {
-  // window.clock = sinon.useFakeTimers();
-
 describe('Snake', function() {
   describe('Head', function() {
     var SPEED;
@@ -86,6 +83,5 @@ describe('Snake', function() {
     });
   });
 });
-    mocha.globals();
-    mochaPhantomJS.run();
-}
+mocha.globals();
+mochaPhantomJS.run();
