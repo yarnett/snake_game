@@ -20,7 +20,7 @@ npm install -g bower
 **Dependencies are files that other developers have written that you plan to use in your code.**
 
 ### Bower
-[Bower](https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSqF8x9hAdXchxUADO3Z_-b02lYO-Lgkkx5YJ1x8hxM_0umjaTnQmIZGaNo8w)
+![](https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSqF8x9hAdXchxUADO3Z_-b02lYO-Lgkkx5YJ1x8hxM_0umjaTnQmIZGaNo8w)
 Is a tool that you can use to manage front end dependencies. 
 Bower can be used to download and install different javascript libraries and css frameworks. Its nice because you can explicitly define what versions of things you need, that way, in the future if that code changes when it updates to a new version, your code doesnt break.
 
