@@ -30,7 +30,7 @@ Bower can be used to download and install different javascript libraries and css
 ![](https://www.npmjs.com/static/images/npm-logo.svg)
 
 npm stands for **N**ode **P**ackage **M**anager. 
-It is a way to manage and install your **Server**-side dependencies. We'll get more into this later in the course because there is some technicalitys and overlap but for now, bower is for client side, npm is for server.
+It is a way to manage and install your **Server**-side dependencies. We'll get more into this later in the course because there is some technicalitys and overlap but for now, `bower` is for client side, `npm` is for server.
 
 ## Building Snake
 
