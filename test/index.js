@@ -1,13 +1,12 @@
 describe('Snake', function() {
   describe('Head', function() {
     var SPEED;
-    console.log(clock);
+    
     beforeEach(function() {
       SPEED = head.SPEED;
     });
 
     afterEach(function() {
-      clock.restore();
     });
 
     it('should move right if right button is pressed', function() {
