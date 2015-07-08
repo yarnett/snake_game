@@ -3,38 +3,41 @@ describe('Snake', function() {
     var SPEED;
     
     beforeEach(function() {
+      // $('#head').detach();
+      head = new Head($('#board'));
       SPEED = head.SPEED;
     });
 
     afterEach(function() {
     });
 
+    function move(direction) {
+      var keyCodes = { 'left': 37, 'up': 38, 'right': 39, 'down': 40 };
+      $('body').trigger(jQuery.Event("keydown", {keyCode: keyCodes[direction]}));
+      clock.tick(SPEED);
+    }
+
     it('should move right if right button is pressed', function() {
       var oldPosition = head.node.position();
-      var e = jQuery.Event( "keydown", { keyCode: 39 } );
-      $('body').trigger(e);
-      clock.tick(SPEED);
+      move('right');
       var newPosition = head.node.position();
       expect(newPosition.top).to.eql(oldPosition.top);
       expect(newPosition.left).to.be.greaterThan(oldPosition.left);
     });
 
     it('should move left if left button is pressed', function() {
+      // Should not be moving right before moving left
+      move('down');
       var oldPosition = head.node.position();
-      var e = jQuery.Event( "keydown", { keyCode: 37 } );
-      $('body').trigger(e);
-      clock.tick(10000);
+      move('left');
       var newPosition = head.node.position();
       expect(newPosition.top).to.eql(oldPosition.top);
       expect(newPosition.left).to.be.lessThan(oldPosition.left);
     });
 
-
     it('should move up if up button is pressed', function() {
       var oldPosition = head.node.position();
-      var e = jQuery.Event( "keydown", { keyCode: 38 } );
-      $('body').trigger(e);
-      clock.tick(SPEED);
+      move('up');
       var newPosition = head.node.position();
       expect(newPosition.top).to.lessThan(oldPosition.top);
       expect(newPosition.left).to.eql(oldPosition.left);
@@ -42,14 +45,64 @@ describe('Snake', function() {
 
     it('should move down if down button is pressed', function() {
       var oldPosition = head.node.position();
-      var e = jQuery.Event( "keydown", { keyCode: 40 } );
-      $('body').trigger(e);
-      clock.tick(SPEED);
+      move('down');
       var newPosition = head.node.position();
       expect(newPosition.top).to.be.greaterThan(oldPosition.top);
       expect(newPosition.left).to.eql(oldPosition.left);
     });
 
+    describe('Cannot move backwards', function() {
+
+      it('should not move left if currently moving right', function() {
+        var oldPosition = head.node.position();
+        move('right');
+        var newPosition = head.node.position();
+        expect(newPosition.left).to.be.greaterThan(oldPosition.left);
+        oldPosition = head.node.position();
+        move('left');
+        newPosition = head.node.position();
+        expect(newPosition.left).to.be.greaterThan(oldPosition.left);
+        expect(newPosition.top).to.eql(oldPosition.top);
+      });
+
+      it('should not move right if currently moving left', function() {
+        var oldPosition = head.node.position();
+        move('down');
+        move('left');
+        var newPosition = head.node.position();
+        expect(newPosition.left).to.be.lessThan(oldPosition.left);
+        oldPosition = head.node.position();
+        move('right');
+        newPosition = head.node.position();
+        expect(newPosition.left).to.be.lessThan(oldPosition.left);
+        expect(newPosition.top).to.eql(oldPosition.top);
+      });
+
+      it('should not move up if currently moving down', function() {
+        var oldPosition = head.node.position();
+        move('down');
+        var newPosition = head.node.position();
+        expect(newPosition.top).to.be.greaterThan(oldPosition.top);
+        oldPosition = head.node.position();
+        move('up');
+        newPosition = head.node.position();
+        expect(newPosition.top).to.be.greaterThan(oldPosition.top);
+        expect(newPosition.left).to.eql(oldPosition.left);
+      });
+
+      it('should not move down if currently moving up', function() {
+        // move('right');
+        var oldPosition = head.node.position();
+        move('up');
+        var newPosition = head.node.position();
+        expect(newPosition.top).to.be.lessThan(oldPosition.top);
+        oldPosition = head.node.position();
+        move('down');
+        newPosition = head.node.position();
+        expect(newPosition.top).to.be.lessThan(oldPosition.top);
+        expect(newPosition.left).to.eql(oldPosition.left);
+      });
+    });
   });
 
   describe('Apple', function() {
