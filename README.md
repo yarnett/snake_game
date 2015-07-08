@@ -19,11 +19,29 @@ npm install -g bower
 ````
 **Dependencies are files that other developers have written that you plan to use in your code.**
 
+### Bower
+![](https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSqF8x9hAdXchxUADO3Z_-b02lYO-Lgkkx5YJ1x8hxM_0umjaTnQmIZGaNo8w)
+
+
+Bower is a tool to manage front end dependencies. 
+Bower can be used to download and install different javascript libraries and css frameworks. Its nice because you can **explicitly** define what versions of things you need, that way, in the future if that code changes when it updates to a new version, your code doesnt break.
+
+### NPM
+![](https://www.npmjs.com/static/images/npm-logo.svg)
+
+npm stands for **N**ode **P**ackage **M**anager. 
+It is a way to manage and install your **Server**-side dependencies. We'll get more into this later in the course because there is some technicalitys and overlap but for now, `bower` is for client side, `npm` is for server.
+
+## Building Snake
+
 1. Three classes have been provided to you
 
     - Head
     - Body
     - Apple
+
+These three classes exist in the **global scope**. They are peices of code that we want to use in our other files, to do this, we declare them without the `var` in their respective files. 
+Its important that you know what you're doing if you put things in the global scope! It is a bad idea to clutter the global scope up so notice how we explicitly define only 3 things that we want in the global scope
 
 1. Head Class
 
@@ -50,3 +68,5 @@ Previous, we ran tests in the browser (we opened an index.html). In production t
 ````
 npm test
 ````
+
+
