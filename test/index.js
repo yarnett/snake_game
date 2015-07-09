@@ -3,12 +3,14 @@ describe('Snake', function() {
     var SPEED;
     
     beforeEach(function() {
-      // $('#head').detach();
+      clock = sinon.useFakeTimers();
+      head.node.detach();
       head = new Head($('#board'));
       SPEED = head.SPEED;
     });
 
     afterEach(function() {
+      clock.restore();
     });
 
     function move(direction) {
@@ -18,6 +20,8 @@ describe('Snake', function() {
     }
 
     it('should move right if right button is pressed', function() {
+      console.log(clock);
+      
       var oldPosition = head.node.position();
       move('right');
       var newPosition = head.node.position();
@@ -115,25 +119,37 @@ describe('Snake', function() {
 
     it('should generate an apple within the parameters of the board', function() {
       var board_position = board.position();
+      console.log(board_position);
       var board_height = board.height();
       var board_width = board.width();
-      var apple_position = apple.node.position();
-      var apple_height = apple.node.height();
-      var apple_width = apple.node.width();
 
-      expect(apple_position.top).to.be.greaterThan(board_position.top);
-      expect(apple_position.left).to.be.greaterThan(board_position.left);
-      expect(apple_position.top + apple_height).to.be.lessThan(board_position.top + board_height - 2);
-      expect(apple_position.left + apple_width).to.be.lessThan(board_position.left + board_width - 2);
+      for (var i = 0; i < 10; i ++) {
+        apple = new Apple(board);
+        var apple_position = apple.node.position();
+        var apple_height = apple.node.height();
+        var apple_width = apple.node.width();
+
+        console.log(apple_position);
+
+        expect(apple_position.top).to.be.greaterThan(board_position.top);
+        expect(apple_position.left).to.be.greaterThan(board_position.left);
+        expect(apple_position.top + apple_height).to.be.lessThan(board_position.top + board_height + 2);
+        expect(apple_position.left + apple_width).to.be.lessThan(board_position.left + board_width + 2);
+      }
     });
 
     it('should generate an apple randomly on the board', function() {
       var oldPosition = apple.node.position();
-      $('#apple').detach();
-      var newPosition = new Apple($('#board')).node.position();
-      expect(oldPosition).to.not.eql(newPosition);
+
+      for (var i = 0; i < 10; i ++) {
+        $('#apple').detach();
+        var newPosition = new Apple(board).node.position();
+        console.log("Old position", oldPosition, "New position", newPosition);
+        expect(oldPosition).to.not.eql(newPosition);
+        oldPosition = newPosition;     
+      }
     });
   });
 });
 mocha.globals();
-mochaPhantomJS.run();
+if (window.mochaPhantomJS) { mochaPhantomJS.run(); }
