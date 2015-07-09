@@ -3,10 +3,16 @@ describe('Snake', function() {
     var SPEED;
     
     beforeEach(function() {
-      clock = sinon.useFakeTimers();
       head.node.detach();
-      head = new Head($('#board'));
+      clock = sinon.useFakeTimers();
+
+      board = $('#board');
+      head = new Head(board);
       SPEED = head.SPEED;
+
+      // place head in middle of board
+      var position = head.node.position();
+      head.node.offset({left: (position.left + 300), top: (position.top + 300)});
     });
 
     afterEach(function() {
@@ -19,43 +25,103 @@ describe('Snake', function() {
       clock.tick(SPEED);
     }
 
-    it('should move right if right button is pressed', function() {
-      console.log(clock);
-      
-      var oldPosition = head.node.position();
-      move('right');
-      var newPosition = head.node.position();
-      expect(newPosition.top).to.eql(oldPosition.top);
-      expect(newPosition.left).to.be.greaterThan(oldPosition.left);
+    describe('Responds to keyboard input', function() {
+
+      it('should move right if right button is pressed', function() {      
+        var oldPosition = head.node.position();
+        move('right');
+        var newPosition = head.node.position();
+        expect(newPosition.top).to.eql(oldPosition.top);
+        expect(newPosition.left).to.be.greaterThan(oldPosition.left);
+      });
+
+      it('should move left if left button is pressed', function() {
+        // Should not be moving right before moving left
+        move('down');
+        var oldPosition = head.node.position();
+        move('left');
+        var newPosition = head.node.position();
+        expect(newPosition.top).to.eql(oldPosition.top);
+        expect(newPosition.left).to.be.lessThan(oldPosition.left);
+      });
+
+      it('should move up if up button is pressed', function() {
+        var oldPosition = head.node.position();
+        move('up');
+        var newPosition = head.node.position();
+        expect(newPosition.top).to.lessThan(oldPosition.top);
+        expect(newPosition.left).to.eql(oldPosition.left);
+      });
+
+      it('should move down if down button is pressed', function() {
+        var oldPosition = head.node.position();
+        move('down');
+        var newPosition = head.node.position();
+        expect(newPosition.top).to.be.greaterThan(oldPosition.top);
+        expect(newPosition.left).to.eql(oldPosition.left);
+      });
+
     });
 
-    it('should move left if left button is pressed', function() {
-      // Should not be moving right before moving left
-      move('down');
-      var oldPosition = head.node.position();
-      move('left');
-      var newPosition = head.node.position();
-      expect(newPosition.top).to.eql(oldPosition.top);
-      expect(newPosition.left).to.be.lessThan(oldPosition.left);
+    describe('Game ends if head moves out of the board', function() {
+
+      it('should not be able to move outside of the top of the board', function() {
+        var oldPosition = head.node.position();
+
+        // position head at top of board
+        oldPosition.top = board.position().top + 1;
+        head.node.offset(oldPosition);
+
+        // try to move up
+        move('up');
+        var newPosition = head.node.position();
+        expect(newPosition.top).to.eql(oldPosition.top);
+      });
+
+      it('should not be able to move outside of the right of the board', function() {
+        var oldPosition = head.node.position();
+
+        // position head at right of board
+        oldPosition.left = board.position().left + board.width() - 49;
+        head.node.offset(oldPosition);
+
+        // try to move up
+        move('right');
+        var newPosition = head.node.position();
+        expect(newPosition.left).to.eql(oldPosition.left);
+      });
+
+      it('should not be able to move outside of the bottom of the board', function() {
+        var oldPosition = head.node.position();
+
+        // position head at bottom of board
+        oldPosition.top = board.position().top + board.height() - 49;
+        head.node.offset(oldPosition);
+
+        // try to move down
+        move('down');
+        var newPosition = head.node.position();
+        expect(newPosition.top).to.eql(oldPosition.top);
+      });
+
+      it('should not be able to move outside of the left of the board', function() {
+        var oldPosition = head.node.position();
+        
+        // position head at left of board
+        oldPosition.left = board.position().left + 1;
+        head.node.offset(oldPosition);
+
+        // Should not be moving right before moving left
+        move('down');
+        // try to move left
+        move('left');
+        var newPosition = head.node.position();
+        expect(newPosition.left).to.eql(oldPosition.left);
+      });
+
     });
 
-    it('should move up if up button is pressed', function() {
-      var oldPosition = head.node.position();
-      move('up');
-      var newPosition = head.node.position();
-      expect(newPosition.top).to.lessThan(oldPosition.top);
-      expect(newPosition.left).to.eql(oldPosition.left);
-    });
-
-    it('should move down if down button is pressed', function() {
-      var oldPosition = head.node.position();
-      move('down');
-      var newPosition = head.node.position();
-      expect(newPosition.top).to.be.greaterThan(oldPosition.top);
-      expect(newPosition.left).to.eql(oldPosition.left);
-    });
-
-    describe('Cannot move backwards', function() {
+    describe('**BONUS** Cannot move backwards', function() {
 
       it('should not move left if currently moving right', function() {
         var oldPosition = head.node.position();
@@ -119,7 +185,6 @@ describe('Snake', function() {
 
     it('should generate an apple within the parameters of the board', function() {
       var board_position = board.position();
-      console.log(board_position);
       var board_height = board.height();
       var board_width = board.width();
 
@@ -128,8 +193,6 @@ describe('Snake', function() {
         var apple_position = apple.node.position();
         var apple_height = apple.node.height();
         var apple_width = apple.node.width();
-
-        console.log(apple_position);
 
         expect(apple_position.top).to.be.greaterThan(board_position.top);
         expect(apple_position.left).to.be.greaterThan(board_position.left);
@@ -142,9 +205,8 @@ describe('Snake', function() {
       var oldPosition = apple.node.position();
 
       for (var i = 0; i < 10; i ++) {
-        $('#apple').detach();
-        var newPosition = new Apple(board).node.position();
-        console.log("Old position", oldPosition, "New position", newPosition);
+        apple = new Apple(board);
+        var newPosition = apple.node.position();
         expect(oldPosition).to.not.eql(newPosition);
         oldPosition = newPosition;     
       }
