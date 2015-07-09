@@ -1,29 +1,38 @@
 describe('Snake', function() {
+
+  var SPEED;
+  // hopefully all the borders are the same
+  var BORDER_WIDTH = parseInt($('#board').css("border-left-width"));
+  console.log(BORDER_WIDTH);
+
+  function move(direction) {
+    var keyCodes = { 'left': 37, 'up': 38, 'right': 39, 'down': 40 };
+    $('body').trigger(jQuery.Event("keydown", {keyCode: keyCodes[direction]}));
+    clock.tick(SPEED);
+  }
+
+  beforeEach(function() {
+    clock = sinon.useFakeTimers();
+
+    head.node.detach();
+
+    board = $('#board');
+    head = new Head(board);
+    SPEED = head.SPEED;
+
+    // place head in middle of board
+    var position = head.node.position();
+    head.node.offset({left: (position.left + 300), top: (position.top + 300)});
+  });
+
+  afterEach(function() {
+    clock.restore();
+  });
+
   describe('Head', function() {
-    var SPEED;
-    
     beforeEach(function() {
-      head.node.detach();
-      clock = sinon.useFakeTimers();
 
-      board = $('#board');
-      head = new Head(board);
-      SPEED = head.SPEED;
-
-      // place head in middle of board
-      var position = head.node.position();
-      head.node.offset({left: (position.left + 300), top: (position.top + 300)});
     });
-
-    afterEach(function() {
-      clock.restore();
-    });
-
-    function move(direction) {
-      var keyCodes = { 'left': 37, 'up': 38, 'right': 39, 'down': 40 };
-      $('body').trigger(jQuery.Event("keydown", {keyCode: keyCodes[direction]}));
-      clock.tick(SPEED);
-    }
 
     describe('Responds to keyboard input', function() {
 
@@ -69,7 +78,7 @@ describe('Snake', function() {
         var oldPosition = head.node.position();
 
         // position head at top of board
-        oldPosition.top = board.position().top + 1;
+        oldPosition.top = board.position().top + BORDER_WIDTH;
         head.node.offset(oldPosition);
 
         // try to move up
@@ -82,7 +91,7 @@ describe('Snake', function() {
         var oldPosition = head.node.position();
 
         // position head at right of board
-        oldPosition.left = board.position().left + board.width() - 49;
+        oldPosition.left = board.position().left + board.width() - 50 + BORDER_WIDTH;
         head.node.offset(oldPosition);
 
         // try to move up
@@ -95,7 +104,7 @@ describe('Snake', function() {
         var oldPosition = head.node.position();
 
         // position head at bottom of board
-        oldPosition.top = board.position().top + board.height() - 49;
+        oldPosition.top = board.position().top + board.height() - 50 + BORDER_WIDTH;
         head.node.offset(oldPosition);
 
         // try to move down
@@ -108,7 +117,7 @@ describe('Snake', function() {
         var oldPosition = head.node.position();
         
         // position head at left of board
-        oldPosition.left = board.position().left + 1;
+        oldPosition.left = board.position().left + BORDER_WIDTH;
         head.node.offset(oldPosition);
 
         // Should not be moving right before moving left
@@ -196,8 +205,8 @@ describe('Snake', function() {
 
         expect(apple_position.top).to.be.greaterThan(board_position.top);
         expect(apple_position.left).to.be.greaterThan(board_position.left);
-        expect(apple_position.top + apple_height).to.be.lessThan(board_position.top + board_height + 2);
-        expect(apple_position.left + apple_width).to.be.lessThan(board_position.left + board_width + 2);
+        expect(apple_position.top + apple_height).to.be.lessThan(board_position.top + board_height + (BORDER_WIDTH * 2));
+        expect(apple_position.left + apple_width).to.be.lessThan(board_position.left + board_width + (BORDER_WIDTH * 2));
       }
     });
 
@@ -210,6 +219,27 @@ describe('Snake', function() {
         expect(oldPosition).to.not.eql(newPosition);
         oldPosition = newPosition;     
       }
+    });
+
+    it('should remove the apple when the head of the snake reaches the apple', function() {
+      var applePosition = apple.node.position();
+
+      // make sure apple isn't on left wall
+      while (applePosition.left === board.position().left + BORDER_WIDTH) {
+        apple = new Apple(board);
+        applePosition = apple.node.position();
+      }
+
+      // place head to left of apple
+      var newPosition = {
+        left: applePosition.left - 50,
+        top: applePosition.top
+      };
+      head.node.offset(newPosition);
+
+      move('right');
+      var newApple = $('#apple');
+      expect(newApple.position()).to.not.eql(applePosition);
     });
   });
 });
