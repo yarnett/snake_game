@@ -5,4 +5,5 @@ if (window.mochaPhantomJS) {
           return fn.apply(thisp, arguments);
       };
   };
+  clock = sinon.useFakeTimers();
 }
