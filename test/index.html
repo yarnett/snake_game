@@ -19,6 +19,7 @@
   <script src="./../src/main.js"></script>
   <script src='index.js'></script>
   <script>
+    clock = sinon.useFakeTimers();
     mocha.globals();
     if (window.mochaPhantomJS) { mochaPhantomJS.run(); }
     else { mocha.run(); }
