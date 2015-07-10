@@ -197,9 +197,10 @@ describe('Snake', function() {
   describe('Apple', function() {
     var apple;
     var board;
+
     beforeEach(function() {
       board = $('#board');
-      apple = new Apple(board);
+      apple = $('#apple');
     });
 
     it('should generate an apple within the parameters of the board', function() {
@@ -208,6 +209,7 @@ describe('Snake', function() {
       var board_width = board.width();
 
       for (var i = 0; i < 10; i ++) {
+        $('#apple').detach();
         apple = new Apple(board);
         var apple_position = apple.node.position();
         var apple_height = apple.node.height();
@@ -224,6 +226,7 @@ describe('Snake', function() {
       var oldPosition = apple.node.position();
 
       for (var i = 0; i < 10; i ++) {
+        $('#apple').detach();
         apple = new Apple(board);
         var newPosition = apple.node.position();
         expect(oldPosition).to.not.eql(newPosition);
