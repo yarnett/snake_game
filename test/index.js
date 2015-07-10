@@ -210,8 +210,8 @@ describe('Snake', function() {
       var board_width = board.width();
 
       for (var i = 0; i < 10; i ++) {
-        if ($('apple').length > 0) {
-          $('apple').detach();
+        if ($('#apple').length > 0) {
+          $('#apple').detach();
         }
         apple = new Apple(board);
         var apple_position = apple.node.position();
@@ -229,8 +229,8 @@ describe('Snake', function() {
       var oldPosition = apple.node.position();
 
       for (var i = 0; i < 10; i ++) {
-        if ($('apple').length > 0) {
-          $('apple').detach();          
+        if ($('#apple').length > 0) {
+          $('#apple').detach();          
         }
         apple = new Apple(board);
         var newPosition = apple.node.position();
