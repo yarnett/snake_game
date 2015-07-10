@@ -32,9 +32,6 @@ describe('Snake', function() {
   });
 
   describe('Head', function() {
-    beforeEach(function() {
-
-    });
 
     describe('Responds to keyboard input', function() {
 
