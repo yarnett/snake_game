@@ -28,7 +28,7 @@ npm install -g bower
 1. Head Class
 
     - make the head of the snake be able to turn based on the arrow keys
-    - when the head of the snake reaches a border, end the game
+    - when the head of the snake reaches a border, end the game (Note: when the game ends the head should stop moving!)
     - **BONUS**: the head of the snake should not be able to move backwards
 
 1. Apple Class
@@ -46,7 +46,8 @@ npm install -g bower
     - end the game when the snake runs into its own segment
 
 ##How do I test if my answer is correct?
-Previous, we ran tests in the browser (we opened an index.html). In production though, we often run test in the terminal. To run tests in the terminal for this challenge, type the following code:
+You have two options for testing your code for this challenge: either open the ./test/index.html file in your browser, or enter the following terminal command from this folder:
 ````
 npm test
 ````
+The tests for Snake are meant as a way to provide you a definite path through the initial stages of the project but they do not test all the possible ways one could implement it. It's very possible you'll find a solution that doesn't pass these tests. If you can't pass a test but you think your solution works then just let us know.
