@@ -3,6 +3,11 @@
 ##Summary
 Snake is one of the first mobile games in development. We will be creating a browser based version using our understanding of OOP and DOM manipulation.
 
+##Learning objectives
+  - Using JavaScript to change the look and behavior of the DOM
+  - React to user input
+  - Utilize object-oriented programming
+
 ##How do I get started?
 
 1. First, load the external dependencies with the following commands:
