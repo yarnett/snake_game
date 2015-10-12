@@ -29,13 +29,13 @@ npm install -g bower
 
 
 Bower is a tool to manage front end dependencies.
-Bower can be used to download and install different javascript libraries and css frameworks. Its nice because you can **explicitly** define what versions of things you need, that way, in the future if that code changes when it updates to a new version, your code doesnt break.
+Bower can be used to download and install different javascript libraries and css frameworks. Its nice because you can **explicitly** define what versions of things you need; that way in the future, if that code changes when it updates to a new version, your code doesnt break.
 
 ### NPM
 ![](https://www.npmjs.com/static/images/npm-logo.svg)
 
 npm stands for **N**ode **P**ackage **M**anager.
-It is a way to manage and install your **Server**-side dependencies. We'll get more into this later in the course because there is some technicalitys and overlap but for now, `bower` is for client side, `npm` is for server.
+It is a way to manage and install your **Server**-side dependencies. We'll get more into this later in the course because there is some technicalities and overlap but for now, `bower` is for client side, `npm` is for server.
 
 ## Building Snake
 
@@ -45,8 +45,8 @@ It is a way to manage and install your **Server**-side dependencies. We'll get m
     - Body
     - Apple
 
-These three classes exist in the **global scope**. They are peices of code that we want to use in our other files, to do this, we declare them without the `var` in their respective files.
-Its important that you know what you're doing if you put things in the global scope! It is a bad idea to clutter the global scope up so notice how we explicitly define only 3 things that we want in the global scope
+These three classes exist in the **global scope**. They are pieces of code that we want to use in our other files: to do this, we declare them without the `var` in their respective files.
+It's important that you know what you're doing if you put things in the global scope! It is a bad idea to clutter the global scope up so notice how we explicitly define only 3 things that we want in the global scope
 
 1. Head Class
 
@@ -73,4 +73,4 @@ You have two options for testing your code for this challenge: either open the .
 ````
 npm test
 ````
-The tests for Snake are meant as a way to provide you a definite path through the initial stages of the project but they do not test all the possible ways one could implement it. It's very possible you'll find a solution that doesn't pass these tests. If you can't pass a test but you think your solution works then just let us know.
+The tests for Snake are meant as a way to provide you a definite path through the initial stages of the project, but they do not test all the possible ways one could implement it. It's very possible you'll find a solution that doesn't pass these tests. If you can't pass a test but you think your solution works then just let us know.
