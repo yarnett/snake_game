@@ -46,7 +46,7 @@ The tests for Snake are meant as a way to provide you a definite path through th
 
 ##Challenges
 
-## Building Snake
+### Building Snake
 
 1. Three classes have been provided to you
 
