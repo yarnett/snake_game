@@ -59,22 +59,22 @@ It's important that you know what you're doing if you put things in the global s
 
 1. Head Class
 
-    -[] make the head of the snake be able to turn based on the arrow keys
-    -[] when the head of the snake reaches a border, end the game
+    - [ ] make the head of the snake be able to turn based on the arrow keys
+    - [ ] when the head of the snake reaches a border, end the game
 
 1. Apple Class
 
-    -[] the apple should appear randomly on the screen
-    -[] the apple should appear within the size of the board
-    -[] remove the apple when the head of the snake reaches the apple
-    -[] another apple should appear on the screen
-    -[] the apple should not appear on the snake
+    - [ ] the apple should appear randomly on the screen
+    - [ ] the apple should appear within the size of the board
+    - [ ] remove the apple when the head of the snake reaches the apple
+    - [ ] another apple should appear on the screen
+    - [ ] the apple should not appear on the snake
 
 ##Extension Challenges
 
 1. Head Class
-    -[]: the head of the snake should not be able to move backwards
+    - [ ] the head of the snake should not be able to move backwards
 
 1. : Body Class
-    -[] add a segment to the snake when the head of the snake reaches an apple
-    -[] end the game when the snake runs into its own segment
+    - [ ] add a segment to the snake when the head of the snake reaches an apple
+    - [ ] end the game when the snake runs into its own segment
