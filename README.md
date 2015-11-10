@@ -1,11 +1,24 @@
 #Snake
 
 ##Summary
-Snake is one of the first mobile games in development. We will be creating a browser based version using our understanding of OOP and DOM manipulation.
+Snake is one of the first mobile games in development. We will be creating a browser based version using our understanding of OOP and DOM manipulation. This will be your first dynamic, single-page app. It's a game, so have some fun and get creative once the basic functionality is created!
 
-###Learning Goals
-- Understand how to manipulate the DOM
-- Solidify grasp of OOP
+##Learning objectives
+  - Using JavaScript to change the look and behavior of the DOM
+  - React to user input
+  - Utilize object-oriented programming
+
+### Bower
+![](https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSqF8x9hAdXchxUADO3Z_-b02lYO-Lgkkx5YJ1x8hxM_0umjaTnQmIZGaNo8w)
+
+Bower is a tool to manage front end dependencies.
+Bower can be used to download and install different javascript libraries and css frameworks. Its nice because you can **explicitly** define what versions of things you need; that way in the future, if that code changes when it updates to a new version, your code doesnt break.
+
+### NPM
+![](https://www.npmjs.com/static/images/npm-logo.svg)
+
+npm stands for **N**ode **P**ackage **M**anager.
+It is a way to manage and install your **Server**-side dependencies. We'll get more into this later in the course because there is some technicalities and overlap but for now, `bower` is for client side, `npm` is for server.
 
 ##Getting Started
 
@@ -29,12 +42,20 @@ Previous, we ran tests in the browser (we opened an index.html). In production t
 npm test
 ````
 
+The tests for Snake are meant as a way to provide you a definite path through the initial stages of the project, but they do not test all the possible ways one could implement it. It's very possible you'll find a solution that doesn't pass these tests. If you can't pass a test but you think your solution works then just let us know.
+
 ##Challenges
+
+## Building Snake
+
 1. Three classes have been provided to you
 
     - Head
     - Body
     - Apple
+
+These three classes exist in the **global scope**. They are pieces of code that we want to use in our other files: to do this, we declare them without the `var` in their respective files.
+It's important that you know what you're doing if you put things in the global scope! It is a bad idea to clutter the global scope up so notice how we explicitly define only 3 things that we want in the global scope
 
 1. Head Class
 
