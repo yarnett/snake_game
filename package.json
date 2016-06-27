@@ -10,9 +10,15 @@
     "mocha-phantomjs": "^3.5.3",
     "phantomjs": "^1.9.17"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^2.13.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.9.2",
+    "eslint-plugin-react": "^5.2.2"
+  },
   "scripts": {
-    "test": "./node_modules/.bin/mocha-phantomjs index.html"
+    "test": "./node_modules/.bin/mocha-phantomjs index.html",
+    "lint": "./node_modules/.bin/eslint src/"
   },
   "author": "",
   "license": "ISC"
