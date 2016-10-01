@@ -1,6 +1,8 @@
-class Head { // creates a constructor function
+// creates a constructor function - research ES6 classes
+class Head {
 
-  constructor($el) { // this is what's called when you use the "new" keyword
+  // this is what's called when you use the "new" keyword
+  constructor($el) {
     this.node = $('<div id="head"></div>');
     this.currentDirection = 'right';
     this.SPEED = 500;
@@ -9,12 +11,15 @@ class Head { // creates a constructor function
     setTimeout(this.move.bind(this), this.SPEED);
   }
 
-  move() {  // same as Head.prototype.move = function() {...}
-    var direction = this.currentDirection;
-    var position = this.node.position();
+  // same as Head.prototype.move = function() {...}
+  move() {
+    let direction = this.currentDirection;
+    let position = this.node.position();
+
     if (direction === 'right') {
       position.left += 50;
     }
+
     this.node.offset(position);
     setTimeout(this.move.bind(this), this.SPEED);
   }

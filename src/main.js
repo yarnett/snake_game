@@ -1,7 +1,6 @@
-// head out in global scope for testing purposes
 $(document).ready(function() {
-  head = new Head($('#board'));
-  var apple = new Apple($('#board'));
+  const head = new Head($('#board'));
+  const apple = new Apple($('#board'));
 
   $('body').on('keydown', function(e) {
     if (e.keyCode === 37) {
