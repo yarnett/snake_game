@@ -8,12 +8,6 @@ Snake is one of the first mobile games in development. We will be creating a bro
   - React to user input
   - Utilize object-oriented programming
 
-### Bower
-![](https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSqF8x9hAdXchxUADO3Z_-b02lYO-Lgkkx5YJ1x8hxM_0umjaTnQmIZGaNo8w)
-
-Bower is a tool to manage front end dependencies.
-Bower can be used to download and install different javascript libraries and css frameworks. Its nice because you can **explicitly** define what versions of things you need; that way in the future, if that code changes when it updates to a new version, your code doesnt break.
-
 ### NPM
 ![](https://www.npmjs.com/static/images/npm-logo.svg)
 
@@ -26,23 +20,7 @@ It is a way to manage and install your **Server**-side dependencies. We'll get m
 ````
 npm install
 ````
-and
-````
-bower install
-````
-Note: If you do not have bower installed, then run
-````
-npm install -g bower
-````
 **Dependencies are files that other developers have written that you plan to use in your code.**
-
-##Testing
-Previous, we ran tests in the browser (we opened an index.html). In production though, we often run test in the terminal. To run tests in the terminal for this challenge, type the following code:
-````
-npm test
-````
-
-The tests for Snake are meant as a way to provide you a definite path through the initial stages of the project, but they do not test all the possible ways one could implement it. It's very possible you'll find a solution that doesn't pass these tests. If you can't pass a test but you think your solution works then just let us know.
 
 ##Challenges
 
@@ -54,8 +32,7 @@ The tests for Snake are meant as a way to provide you a definite path through th
     - Body
     - Apple
 
-These three classes exist in the **global scope**. They are pieces of code that we want to use in our other files: to do this, we declare them without the `var` in their respective files.
-It's important that you know what you're doing if you put things in the global scope! It is a bad idea to clutter the global scope up so notice how we explicitly define only 3 things that we want in the global scope
+Because each of the files is included in a script tag on index.html, these three classes are available to our main.js file (which is included AFTER the other script tags). If you need to access classes (or instances of classes) from other classes, you may need to experiment leaving out the `var`, `let`, or `const` keywords. Always be careful when messing with the global scope!
 
 1. Head Class
 
@@ -75,6 +52,12 @@ It's important that you know what you're doing if you put things in the global s
 1. Head Class
     - [ ] the head of the snake should not be able to move backwards
 
-1. : Body Class
+1. Body Class
     - [ ] add a segment to the snake when the head of the snake reaches an apple
     - [ ] end the game when the snake runs into its own segment
+
+1. Make it your own!
+    - [ ] once you've gotten the core functionality down, feel free to have fun! Modify the functionality, look, even sound of your game. Get creative!
+
+##Testing
+While we can certainly write tests for this unit, the more intuitive approach is to try playing the game by opening `index.html` in your browser.
