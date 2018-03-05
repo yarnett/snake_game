@@ -1,9 +1,9 @@
-#Snake
+# Snake
 
-##Summary
+## Summary
 Snake is one of the first mobile games in development. We will be creating a browser based version using our understanding of OOP and DOM manipulation. This will be your first dynamic, single-page app. It's a game, so have some fun and get creative once the basic functionality is created!
 
-##Learning objectives
+## Learning objectives
   - Using JavaScript to change the look and behavior of the DOM
   - React to user input
   - Utilize object-oriented programming
@@ -14,7 +14,7 @@ Snake is one of the first mobile games in development. We will be creating a bro
 npm stands for **N**ode **P**ackage **M**anager.
 It is a way to manage and install your **Server**-side dependencies. We'll get more into this later in the course because there is some technicalities and overlap but for now, `bower` is for client side, `npm` is for server.
 
-##Getting Started
+## Getting Started
 
 1. First, load the external dependencies with the following commands:
 ````
@@ -22,7 +22,7 @@ npm install
 ````
 **Dependencies are files that other developers have written that you plan to use in your code.**
 
-##Challenges
+## Challenges
 
 ### Building Snake
 
@@ -47,7 +47,7 @@ Because each of the files is included in a script tag on index.html, these three
     - [ ] another apple should appear on the screen
     - [ ] the apple should not appear on the snake
 
-##Extension Challenges
+## Extension Challenges
 
 1. Head Class
     - [ ] the head of the snake should not be able to move backwards
@@ -59,5 +59,5 @@ Because each of the files is included in a script tag on index.html, these three
 1. Make it your own!
     - [ ] once you've gotten the core functionality down, feel free to have fun! Modify the functionality, look, even sound of your game. Get creative!
 
-##Testing
+## Testing
 While we can certainly write tests for this unit, the more intuitive approach is to try playing the game by opening `index.html` in your browser.
