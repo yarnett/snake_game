@@ -20,7 +20,7 @@ class Head {
       position.left += 50;
     }
 
-    this.node.offset(position);
+    this.node.css(position);
     setTimeout(this.move.bind(this), this.SPEED);
   }
 
