@@ -1,10 +1,12 @@
 class Apple {
+  constructor(el) {
+    this.node = document.createElement('img');
+    this.node.setAttribute('id', 'apple');
+    this.node.setAttribute('src', 'src/assets/apple.jpg');
 
-  constructor($el) {
-    this.node = $('<img id="apple"></img>');
-    this.node.attr('src', 'src/assets/apple.jpg');
-    $el.append(this.node);
-    this.node.css({ top: 0, left: 0 });
+    el.appendChild(this.node);
+
+    this.node.style.left = 300;
+    this.node.style.top = 300;
   }
-
 }
