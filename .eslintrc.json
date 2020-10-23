@@ -1,7 +1,10 @@
 {
-    "extends": "airbnb",
-    "installedESLint": true,
-    "plugins": [
-        "react"
-    ]
+  "extends": "airbnb",
+  "env": {
+    "browser": true
+  },
+  "plugins": ["react"],
+  "rules": {
+    "no-unused-vars": ["off", { "vars": "local" }]
+  }
 }
