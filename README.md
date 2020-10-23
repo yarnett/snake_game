@@ -64,8 +64,11 @@ Because each of the files is included in a script tag on index.html, these three
    - [ ] end the game when the snake runs into its own segment
 
 1. Make it your own!
+
    - [ ] once you've gotten the core functionality down, feel free to have fun! Modify the functionality, look, even sound of your game. Get creative!
-   - [ ] additionally, feel free to experiment with refactoring your code using jQuery!
+
+1. jQuery
+   - [ ] take a stab at refactoring your code with jQuery!
 
 ## Testing
 
