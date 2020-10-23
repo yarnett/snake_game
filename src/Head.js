@@ -1,6 +1,5 @@
 // creates a constructor function - research ES6 classes
 class Head {
-
   // this is what's called when you use the "new" keyword
   constructor($el) {
     this.node = $('<div id="head"></div>');
@@ -13,8 +12,8 @@ class Head {
 
   // same as Head.prototype.move = function() {...}
   move() {
-    let direction = this.currentDirection;
-    let position = this.node.position();
+    const direction = this.currentDirection;
+    const position = this.node.position();
 
     if (direction === 'right') {
       position.left += 50;
@@ -23,5 +22,4 @@ class Head {
     this.node.css(position);
     setTimeout(this.move.bind(this), this.SPEED);
   }
-
 }
