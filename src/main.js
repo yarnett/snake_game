@@ -1,11 +1,15 @@
-$(document).ready(function() {
-  const head = new Head($('#board'));
-  const apple = new Apple($('#board'));
+document.addEventListener('DOMContentLoaded', (e) => {
+  const body = document.querySelector('body');
+  const board = document.querySelector('#board');
 
-  $('body').on('keydown', function(e) {
-    if (e.keyCode === 37) {
+  const head = new Head(board);
+  new Apple(board);
+
+
+  body.addEventListener('keydown', (e) => {
+    if (e.code === 'ArrowLeft') {
       console.log('pressed left');
       head.currentDirection = 'left';
     }
-  });
+  })
 });
