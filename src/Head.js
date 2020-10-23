@@ -4,7 +4,7 @@ class Head {
     this.node.setAttribute('id', 'head');
     el.appendChild(this.node);
 
-    this.currentDirection = "right";
+    this.currentDirection = 'right';
     this.SPEED = 250;
 
     this.node.style.top = 0;
@@ -17,13 +17,12 @@ class Head {
     const head = this.node;
     const direction = this.currentDirection;
 
-    let topPosition = Number(head.style.top.replace('px', ''))
-    let leftPosition = Number(head.style.left.replace('px', ''))
+    let topPosition = Number(head.style.top.replace('px', ''));
+    let leftPosition = Number(head.style.left.replace('px', ''));
 
     if (direction === 'right') {
-      head.style.left = `${leftPosition += 50}px`;
+      head.style.left = `${(leftPosition += 50)}px`;
     }
-
 
     setTimeout(this.move.bind(this), this.SPEED);
   }
