@@ -1,15 +1,20 @@
 {
-  "extends": "airbnb",
+  "root": true,
   "env": {
-    "browser": true
+    "browser": true,
+    "es6": true,
+    "mocha": true
   },
-  "plugins": ["react"],
+  "extends": ["eslint:recommended"],
+  "plugins": ["mocha"],
+  "ignorePatterns": ["/test"],
   "globals": {
     "Head": "writable",
     "Apple": "writable",
     "Body": "writable"
   },
   "rules": {
-    "no-unused-vars": ["off", { "vars": "local" }]
+    "no-unused-vars": [0, { "vars": "local" }],
+    "no-redeclare": 0
   }
 }
