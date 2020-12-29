@@ -2,7 +2,7 @@
 
 ## Summary
 
-Snake is one of the first mobile games in development. We will be creating a browser based version using our understanding of OOP and DOM manipulation. This will be your first dynamic, single-page app. It's a game, so have some fun and get creative once the basic functionality is created!
+Snake is one of the [first video game genres](https://en.wikipedia.org/wiki/Snake_(video_game_genre)). We will be creating a browser based version using our understanding of OOP and DOM manipulation. This will be your first dynamic, single-page app. It's a game, so have some fun and get creative once the basic functionality is created!
 
 ## Learning objectives
 
