@@ -9,24 +9,6 @@ Snake is one of the [first video game genres](https://en.wikipedia.org/wiki/Snak
 - Using JavaScript to change the look and behavior of the DOM
 - React to user input
 - Utilize object-oriented programming
-
-### NPM
-
-![](https://www.npmjs.com/static/images/npm-logo.svg)
-
-npm stands for **N**ode **P**ackage **M**anager.
-It is a way to manage and install your **Server**-side dependencies. We'll get more into this later in the course because there is some technicalities and overlap but for now, `bower` is for client side, `npm` is for server.
-
-## Getting Started
-
-1. First, load the external dependencies with the following commands:
-
-```
-npm install
-```
-
-**Dependencies are files that other developers have written that you plan to use in your code.**
-
 ## Challenges
 
 ### Building Snake
@@ -41,34 +23,34 @@ Because each of the files is included in a script tag on index.html, these three
 
 1. Head Class
 
-   - [ ] make the head of the snake be able to turn based on the arrow keys
-   - [ ] when the head of the snake reaches a border, end the game
+   - [ ] Make the head of the snake be able to turn based on the arrow keys
+   - [ ] When the head of the snake reaches a border, end the game
 
 1. Apple Class
 
-   - [ ] the apple should appear randomly on the screen
-   - [ ] the apple should appear within the size of the board
-   - [ ] remove the apple when the head of the snake reaches the apple
-   - [ ] another apple should appear on the screen
-   - [ ] the apple should not appear on the snake
+   - [ ] The apple should appear randomly on the screen
+   - [ ] The apple should appear within the size of the board
+   - [ ] Remove the apple when the head of the snake reaches the apple
+   - [ ] Another apple should appear on the screen
+   - [ ] The apple should not appear on the snake
 
 ## Extension Challenges
 
 1. Head Class
 
-   - [ ] the head of the snake should not be able to move backwards
+   - [ ] The head of the snake should not be able to move backwards
 
 1. Body Class
 
-   - [ ] add a segment to the snake when the head of the snake reaches an apple
-   - [ ] end the game when the snake runs into its own segment
+   - [ ] Add a segment to the snake when the head of the snake reaches an apple
+   - [ ] End the game when the snake runs into its own segment
 
 1. Make it your own!
 
-   - [ ] once you've gotten the core functionality down, feel free to have fun! Modify the functionality, look, even sound of your game. Get creative!
+   - [ ] Once you've gotten the core functionality down, feel free to have fun! Modify the functionality, look, even sound of your game. Get creative!
 
 1. jQuery
-   - [ ] take a stab at refactoring your code with jQuery!
+   - [ ] Refactor your code with jQuery!
 
 ## Testing
 
