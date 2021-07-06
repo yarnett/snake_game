@@ -6,7 +6,11 @@ class Apple {
 
     el.appendChild(this.node);
 
-    this.node.style.left = 300;
-    this.node.style.top = 300;
+    //Randomize position of apple node
+    const randomX = Math.floor(Math.random() * 14) * 50;
+    const randomY = Math.floor(Math.random() * 14) * 50;
+
+    this.node.style.left = `${randomX}px`
+    this.node.style.top = `${randomY}px`;
   }
 }
